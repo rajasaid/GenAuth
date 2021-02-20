@@ -1,0 +1,57 @@
+{% extends 'Authen/base.html' %}
+
+    {% block title %}
+    <title>GenAuth</title>
+    {%endblock%}
+
+    {% block head %}
+
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static  'Authen/style.css' %}">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      {% load static %}
+      <script src="{% static 'Authen/script.js' %}"></script>
+
+
+    {% endblock %}
+
+    {% block body %}
+
+
+    <section class="main">
+      <h1>GenAuth</h1>
+      <ul class="tabs">
+  	      <li class="active login-tab">Login</li>
+		      <li class="register-tab">Register</li>
+      </ul>
+      <!-- Login Form -->
+      <ul class="tab__content">
+        <li class="login-box active">
+          <div class="content__wrapper">
+          <p>Get Started!</p>
+          <form action="{% url 'login' %}" method="post" id="login-form"> {%csrf_token%}
+            <input type="text" name="username" placeholder="Username"  required autofocus /><br />
+            <input type="password" name="password" placeholder="Password" required /><br />
+            <a href="#" id="forgot">Forgot Password?</a><br />
+            <input type="submit" name="submit" value="SIGN IN" class="sub-btn" />
+          </form>
+          </div>
+        </li>
+      <!--   Registration Form -->
+        <li class="register-box">
+          <div class="content__wrapper">
+          <p>Register With Us!</p>
+          <form action="{% url 'register' %}" method="post" id="reg-form"> {%csrf_token%}
+            <input type="text" name="uname" placeholder="Enter Username"  required autofocus /><br />
+            <input type="text" name="groupname" placeholder="Enter Groupname" required/><br />
+            <input type="email" name="email" placeholder="Enter Email"  required /><br />
+            <input type="password" name="pass" placeholder="Enter Password"  required /><br />
+            <input type="password" name="repass" placeholder="Confirm Password" required /><br />
+            <input type="submit" name="submit" value="SIGN UP" class="sub-btn" />
+          </form>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    {% endblock %}

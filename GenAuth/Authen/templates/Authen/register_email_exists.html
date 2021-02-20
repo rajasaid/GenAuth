@@ -1,0 +1,17 @@
+{% extends 'Authen/base.html' %}
+{% block title %}<title> EmailExists </title> {% endblock %}
+
+{%block header%}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static  'Authen/style.css' %}">
+
+{%endblock%}
+
+
+  {%block body%}
+      <div class="main">
+          <h2>Email Address Already Registered!</h2>
+          <h3><a href="{% url 'index' %}">Try to Log In</a></h3>
+      </div>
+
+  {% endblock %}
